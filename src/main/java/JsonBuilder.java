@@ -5,15 +5,11 @@ public class JsonBuilder {
     }
 
     //change that shit to private
-    public String createIndentThing(String whatToPutIn, String brackets) {
-        if (brackets.length() != 2) {
-            throw new RuntimeException("brackets in wrong format, must be in form: \"{}\"");
-        }
-
+    public String createIndentThing(String whatToPutIn, Brackets brackets) {
         whatToPutIn = whatToPutIn.replace(System.getProperty("line.separator"), "\n\t");
-        return "" + brackets.charAt(0)
+        return "" + brackets.getOpeningBracket()
                 + "\n\t" + whatToPutIn
-                + "\n" + brackets.charAt(1);
+                + "\n" + brackets.getClosingBracket();
     }
 
     public void indent(String brackets) {
